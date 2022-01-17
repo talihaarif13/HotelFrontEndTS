@@ -9,11 +9,21 @@ import axiosService from '../services/axiosServices';
 import { useDispatch, useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { format, parseISO } from "date-fns";
+import { RootState } from '../redux/store';
+
+interface IState {
+    reservation: {
+      id: number;
+      room_id: number;
+      starting_date: string;
+      ending_date: string;
+    }[];
+}
 
 export default function AdminReservation() {
     const dispatch = useDispatch();
-    const [reservations, setReservations] = useState([]);
-    const token = useSelector(state => state.users?.user?.token);
+    const [reservations, setReservations] = useState<IState["reservation"]>([]);
+    const token = useSelector((state:RootState) => state.users?.user?.token);
     
     useEffect(() => {
         async function fetchData() {

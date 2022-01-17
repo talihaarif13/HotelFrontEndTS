@@ -1,5 +1,3 @@
-import { Reducer } from "react";
-
 interface User {
     id : number
     name : string
@@ -33,39 +31,6 @@ const initialState : UserState = {
     authenticated: false
 }
 
-// interface User {
-//     id : number
-//     name : string
-//     email : string
-//     password : string
-//     address : string
-//     phone : string
-//     createdAt : string
-//     updatedAt : string
-//     token : string
-// }
-
-// interface State {
-//     //user? : User ;
-//     authenticated: boolean;
-//     error?: string | null;
-// }
-
-// const initialState = {
-//     // user: {
-//     //     id : 0,
-//     //     name : '',
-//     //     email : '',
-//     //     password : '',
-//     //     address : '',
-//     //     phone : '',
-//     //     createdAt : '',
-//     //     updatedAt : '',
-//     //     token : ''
-//     // },
-//     authenticated: false, 
-//     error: null 
-// }
 type Action = {
     type: string; 
     error?: string; 

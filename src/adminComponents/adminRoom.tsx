@@ -11,16 +11,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AddIcon from '@mui/icons-material/Add';
+import { RootState } from '../redux/store';
 
 
 export default function AdminRoom() {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const token = useSelector(state => state.users?.user?.token);
-    const rooms = useSelector(state => state.rooms);
+    const token = useSelector((state:RootState) => state.users?.user?.token);
+    const rooms = useSelector((state:RootState) => state.rooms);
 
     useEffect(() => {
         async function fetchData() {
@@ -41,7 +41,7 @@ export default function AdminRoom() {
     const [roomId, setRoomId] = useState(0);
     const [price, setPrice] = useState('');
 
-    const handleClickOpen = (room_id) => {
+    const handleClickOpen = (room_id:number) => {
         console.log('room id', room_id);
         setRoomId(room_id);
         setOpen(true);
@@ -49,7 +49,7 @@ export default function AdminRoom() {
     const handleClose = () => {
         setOpen(false);
     };
-    const handlePriceChange = (e) => {
+    const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPrice(e.target.value);
         console.log('new price ', price, typeof(price));
     }

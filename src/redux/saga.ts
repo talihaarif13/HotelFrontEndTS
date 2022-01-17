@@ -92,7 +92,7 @@ function* cancelReservation(action: any ):any {
 function* adminAddHotel(action: any) {
   try {
        console.log("action", action);
-       yield put({type: "ADD_HOTEL",  hotel: action.payload.hotel});
+       yield put({type: "ADD_HOTEL",  hotels: action.payload.hotel});
   } catch (e) { 
      console.log("eroor", e);
   }

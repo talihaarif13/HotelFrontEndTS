@@ -14,7 +14,7 @@ export default function Dashbord(){
             <Grid item xs={6}>
                     <Card variant="outlined" style={{textAlign:'center'}} className="cardStyling">
                     <CardMedia >
-                        <Grid align = "center" style={{padding:10}}>
+                        <Grid  style={{padding:10, alignItems:'center'}}>
                             <Avatar style={avatarStyle}><HotelIcon/></Avatar>
                         </Grid>
                     </CardMedia>
@@ -28,7 +28,7 @@ export default function Dashbord(){
             <Grid item xs={6}>
                     <Card variant="outlined" style={{textAlign:'center'}} className="cardStyling">
                     <CardMedia >
-                        <Grid align = "center" style={{padding:10}}>
+                        <Grid style={{padding:10, alignItems:'center'}}>
                             <Avatar style={avatarStyle}><GroupIcon/></Avatar>
                         </Grid>
                     </CardMedia>
@@ -42,7 +42,7 @@ export default function Dashbord(){
             <Grid item xs={6}>
                     <Card variant="outlined" style={{textAlign:'center'}} className="cardStyling">
                     <CardMedia >
-                        <Grid align = "center" style={{padding:10}}>
+                        <Grid  style={{padding:10, alignItems:'center'}}>
                             <Avatar style={avatarStyle}><BedroomParentIcon/></Avatar>
                         </Grid>
                     </CardMedia>
@@ -56,7 +56,7 @@ export default function Dashbord(){
             <Grid item xs={6}>
                     <Card variant="outlined" style={{textAlign:'center'}} className="cardStyling">
                     <CardMedia >
-                        <Grid align = "center" style={{padding:10}}>
+                        <Grid  style={{padding:10, alignItems:'center'}}>
                             <Avatar style={avatarStyle}><BookOnlineIcon/></Avatar>
                         </Grid>
                     </CardMedia>
