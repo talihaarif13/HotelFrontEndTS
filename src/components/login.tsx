@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  TextField, Grid, Button, Paper, Avatar, Alert, Link} from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from '../redux/store';
 
 function Login(){
 
@@ -11,19 +12,19 @@ function Login(){
     const avatarStyle={backgroundColor:'#1d38b9'}
     const btnstyle={margin:'8px 0'}
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleEmailChange = (e) => {
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
     }
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     }
-    const aunthenticate = useSelector(state=> state.users?.authenticated);
+    const aunthenticate = useSelector((state:RootState)=> state.users?.authenticated);
     const loginApi = () => {
         const payload = {
             email : email,
@@ -39,14 +40,14 @@ function Login(){
     }, [aunthenticate])
 
 
-    const error = useSelector(state => state.users?.error);
+    const error = useSelector((state :RootState)=> state.users?.error);
     return(
         <div>
             <Grid>
                 <Grid >
                     <Paper elevation={10} style={paperstyle} >
                         {error ? <Alert severity='error'>{error}</Alert> : <></> }
-                        <Grid align = "center" style={{padding:50}}>
+                        <Grid  style={{padding:"50px", marginLeft: "50px"}}>
                             <Avatar style={avatarStyle}><LoginIcon/></Avatar>
                             <h2>LOGIN</h2>
                         </Grid>

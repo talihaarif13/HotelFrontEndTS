@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,16 +9,29 @@ import axiosService from '../services/axiosServices';
 import { Grid } from '@mui/material';
 import {Link} from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+
+interface IState {
+    hotel: {
+        id: number
+        picture: string
+        name: string
+        address: string 
+    }[]
+}
 
 export default function Hotel() {
-    const [hotels, setHotels] = useState([]);
-    const token = useSelector(state => state.users?.user?.token);
-    
-    useEffect(async () => {
-        const response_hotels = await axiosService.get("hotel/", token, "");
-        console.log(response_hotels.data);
-        setHotels(response_hotels.data);
-    }, []);
+    const [hotels, setHotels] = useState<IState['hotel']>([]);
+    const token = useSelector((state:RootState) => state.users.user?.token ? state.users.user?.token : '');
+    console.log('tok',token);
+    useEffect(() => {
+        const getHotels = async () => {
+            const response_hotels = await axiosService.get("hotel/", token, "");
+            console.log(response_hotels.data);
+            setHotels(response_hotels.data);
+        };
+        getHotels();
+      }, []);
 
     return (
         <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{padding:"100px"}} >

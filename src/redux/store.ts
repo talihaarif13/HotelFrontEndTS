@@ -27,4 +27,8 @@ const store = createStore(
 sagaMiddleware.run(mySaga)
 
 // render the application
+
+
 export default store;
+//This RootState is required to use useSelector later on 
+export type RootState = ReturnType<typeof store.getState>;

@@ -1,18 +1,18 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 const baseUrl = "http://localhost:3000/";
 // Set config defaults when creating the instance
 const axiosService = {
-  post: (endpoint, token, payload) => {
+  post: (endpoint: any, token: any, payload: any) => {
     const instance = axios.create({
       baseURL: baseUrl,
       headers: {
         token: token,
       },
     });
-    return instance.post(`${baseUrl}` + `${endpoint}`, payload);
+    return instance.post<number>(`${baseUrl}` + `${endpoint}`, payload);
   },
-  get: (endpoint, token, payload) => {
+  get: (endpoint: any, token: any, payload: any) => {
     const instance = axios.create({
       baseURL: baseUrl,
       headers: {
